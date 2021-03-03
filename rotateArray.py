@@ -1,3 +1,4 @@
+# Task: https://leetcode.com/problems/rotate-array/
 
 def reverseArr(nums, st_idx, e_idx):
     n = len(nums)
@@ -7,13 +8,12 @@ def reverseArr(nums, st_idx, e_idx):
         return
     # [1,2,3,4,5] 5//2 = 2, [1,2,3,4] 4//2 = 2
     while start_idx < end_idx:
-        temp            = nums[start_idx]
+        temp            = nums[start_idx]        
         nums[start_idx] = nums[end_idx]
         nums[end_idx]   = temp
 
         start_idx += 1
         end_idx   -= 1
-
 
 def rotateByOne(nums):
     n = len(nums)
@@ -58,7 +58,6 @@ def rotateArrayApproach03(nums, k):
     # Reverse entire array
     reverseArr(nums, 0, n - 1)
 
-
 rotate_by = 3
 arr = [1,2,3,4,5,6,7]
 
@@ -71,4 +70,11 @@ arr.sort()
 print(arr, " Original")
 rotateArrayApproach03(arr, rotate_by + 2)
 print(arr, " Approach 3, Reverse: Rotate {} times".format(rotate_by + 2))
-# print(rotateArrayApproach03(arr, rotate_by), " Approach 2, Use Reverse")
+
+# Output
+# [1, 2, 3, 4, 5, 6, 7]  Original
+# [5, 6, 7, 1, 2, 3, 4]  Approach 1, Slicing (k=3): Use additional memory
+# [1, 2, 3, 4, 5, 6, 7]  Original
+# [4, 5, 6, 7, 1, 2, 3]  Approach 2, Rotate 1x4 times
+# [1, 2, 3, 4, 5, 6, 7]  Original
+# [3, 4, 5, 6, 7, 1, 2]  Approach 3, Reverse: Rotate 5 times
